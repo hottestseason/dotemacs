@@ -46,6 +46,7 @@
     smartparens
     smooth-scroll
     smooth-scrolling
+    typescript
     tabbar
     textmate
     undo-tree
