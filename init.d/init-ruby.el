@@ -4,6 +4,7 @@
 (add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.jbuilder$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.cap$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode))
 (add-hook 'ruby-mode-hook
@@ -12,7 +13,11 @@
              ruby-deep-indent-paren nil
              ruby-deep-arglist nil
              ruby-insert-encoding-magic-comment nil)
+
             (require 'smartparens-ruby)
+
+            (when (require 'rbenv nil t)
+              (global-rbenv-mode))
 ;;             (when (require 'ruby-block nil t)
 ;;               (ruby-block-mode 1)
 ;;               (setq
