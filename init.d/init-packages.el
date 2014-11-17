@@ -9,17 +9,23 @@
 (defvar installing-package-list
   '(ac-js2
     ack-and-a-half
+    ag
+    anzu
     auto-complete
     auto-complete-clang
+    benchmark-init
     coffee-mode
     d-mode
+    dockerfile-mode
     direx
     diminish
+    editorconfig
     exec-path-from-shell
     expand-region
     feature-mode
     flycheck
     flycheck-d-unittest
+    flycheck-tip
     git-gutter
     git-gutter-fringe
     haml-mode
@@ -30,19 +36,24 @@
     jade-mode
     js2-mode
     magit
+    markdown-mode
+    minor-mode-hack
     move-text
     multiple-cursors
     point-undo
     popwin
+    powerline
     projectile
     rainbow-delimiters
-    rainbow-mode
+    rbenv
     recentf-ext
+    region-bindings-mode
     ruby-block
     ruby-end
     sass-mode
     scss-mode
     sequential-command
+    smartrep
     slim-mode
     smart-compile
     smartparens
@@ -53,6 +64,8 @@
     textmate
     undo-tree
     undohist
+    volatile-highlights
+    yascroll
     yasnippet
     yaml-mode
     zenburn-theme))

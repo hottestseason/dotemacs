@@ -1,6 +1,3 @@
-(setq js-indent-level 2)
-(setq coffee-tab-width 2)
-
 (defun beautify-json ()
   (interactive)
   (let ((b (if mark-active (min (point) (mark)) (point-min)))

@@ -1,6 +1,3 @@
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-
 (add-hook 'after-init-hook
           (lambda ()
             (require 'server)
@@ -15,6 +12,8 @@
 
             (add-to-list 'backup-directory-alist (cons "." "~/.emacs.d/backups"))
 
+            (global-set-key (kbd "M-SPC") 'cycle-spacing)
+
             (setq auto-save-file-name-transforms `((".*", (expand-file-name "~/.emacs.d/backups/") t)))
 
             (setq create-lockfiles nil)
@@ -23,6 +22,8 @@
 
             (setq undo-limit 1000000)
             (setq undo-strong-limit 1000000)
+
+            (global-set-key (kbd "M-¥") [?\\])
 
             (setq-default abbrev-mode nil)
 
@@ -39,10 +40,6 @@
             (require 'ido)
             (ido-mode t)
             (ido-everywhere t)
-
-            (require 'uniquify)
-            (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
-            (setq uniquify-ignore-buffer-re "*[^*]+*")
 
             ;; change window
             (defun other-window-or-split ()
@@ -75,24 +72,33 @@
               (when (memq window-system '(mac ns))
                 (exec-path-from-shell-initialize)))
 
-            (when (require 'sequential-command-config nil t)
-              (global-set-key (kbd "C-a") 'seq-home)
-              (global-set-key (kbd "C-e") 'seq-end)
-              (global-set-key (kbd "M-u") 'seq-upcase-backward-word)
-              (global-set-key (kbd "M-c") 'seq-capitalize-backward-word)
-              (global-set-key (kbd "M-l") 'seq-downcase-backward-word))
+            (mapc (lambda (func)
+                    (autoload func "yet-another-sequential-command-config"))
+                  '(seq-home seq-end seq-upcase-backward-word seq-capitalize-backward-word seq-downcase-backward-word))
+            (global-set-key (kbd "C-a") 'seq-home)
+            (global-set-key (kbd "C-e") 'seq-end)
+            (global-set-key (kbd "M-u") 'seq-upcase-backward-word)
+            (global-set-key (kbd "M-c") 'seq-capitalize-backward-word)
+            (global-set-key (kbd "M-l") 'seq-downcase-backward-word)
 
             (when (require 'expand-region nil t)
               (global-set-key (kbd "S-SPC") 'er/expand-region))
 
             (add-hook 'dired-mode-hook
                       (lambda ()
+                        (defun dired-open ()
+                          (interactive)
+                          (call-process "open" nil 0 nil (dired-get-filename)))
+                        (define-key dired-mode-map "o" 'dired-open)
+
                         (when (require 'dired-x nil t)
                           (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode))))
 
-            (setq recentf-max-saved-items 1000000)
-            (setq recentf-max-menu-items 500)
-            (setq recentf-exclude '("\.ido\.hist" "\.ido\.last" "xhtml-loader\.rnc" "elpa\/"))
+            (custom-set-variables
+             '(recentf-max-saved-items 10000000)
+             '(recentf-max-menu-items 10000)
+             '(recentf-exclude '("\.ido\.hist" "\.ido\.last" "xhtml-loader\.rnc" "elpa\/"))
+             '(recentf-auto-cleanup 'never))
 
             (when (require 'undo-tree nil t)
               (global-undo-tree-mode t)
@@ -116,19 +122,27 @@
             (cua-mode 1)
             (setq cua-enable-cua-keys nil)
 
+            (when (require 'anzu nil t)
+              (global-anzu-mode 1)
+              (custom-set-variables
+                '(anzu-mode-lighter nil)
+                '(anzu-search-threshold 1000)))
+
+            (add-hook 'markdown-mode-hook (lambda ()
+                                            (require 'markdown-livepreviewer)))
+
             (add-hook 'before-save-hook
                       (lambda ()
                         (when buffer-file-name
                           (let ((dir (file-name-directory buffer-file-name)))
-                            (when (and (not (file-exists-p dir))
-                                       (y-or-n-p (format "Directory %s does not exist. Create it?" dir)))
+                            (when (not (file-exists-p dir))
                               (make-directory dir t))))))
 
-            (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+            (global-set-key (kbd "s-=") 'text-scale-increase)
+            (global-set-key (kbd "s--") 'text-scale-decrease)
+            (global-set-key (kbd "s-0") '(lambda () (interactive) (text-scale-set 0)))))
 
-            (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-            (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-            (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)))
-
+(require 'init-helm)
+(require 'init-multiple-cursors)
 
 (provide 'init-global-configs)
