@@ -12,12 +12,14 @@
     auto-complete
     auto-complete-clang
     coffee-mode
+    d-mode
     direx
     diminish
     exec-path-from-shell
     expand-region
     feature-mode
     flycheck
+    flycheck-d-unittest
     git-gutter
     git-gutter-fringe
     haml-mode

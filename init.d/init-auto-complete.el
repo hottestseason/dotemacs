@@ -4,6 +4,7 @@
    ac-delay 0.1
    ac-auto-show-menu 0.2
    ac-use-menu-map t)
+  (add-to-list 'ac-modes 'd-mode)
   (add-to-list 'ac-modes 'coffee-mode)
   (add-to-list 'ac-modes 'scss-mode)
   (add-to-list 'ac-modes 'rhtml-mode)

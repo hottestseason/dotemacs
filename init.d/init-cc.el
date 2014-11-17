@@ -9,4 +9,8 @@
 (require 'cc-mode)
 (font-lock-add-keywords 'c++-mode '(("\\<\\(Q_OBJECT\\|public slots\\|signals\\|public signals\\|private slots\\|private signals\\|protected slots\\|protected signals\\)\\>" . font-lock-constant-face)))
 
+(add-hook 'd-mode-hook
+          (lambda ()
+             (setup-flycheck-d-unittest)))
+
 (provide 'init-cc)
