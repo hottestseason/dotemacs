@@ -7,6 +7,7 @@
 
 (require 'init-global-configs)
 (require 'init-packages)
+(require 'personal-utils)
 (require 'init-face)
 (require 'init-programming-settings)
 (custom-set-variables
