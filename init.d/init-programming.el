@@ -58,6 +58,7 @@
 (add-hook 'prog-mode-hook
           (lambda ()
             (which-func-mode t)
+            (add-to-list 'auto-mode-alist '("\\.t$" . perl-mode))
 
             ;; (require 'init-tabbar)
             (require 'init-flycheck)
