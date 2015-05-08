@@ -27,7 +27,7 @@
     (global-set-key (kbd "M-S") 'helm-projectile-ag)))
 
 (global-set-key (kbd "M-s") 'helm-occur)
-(global-set-key (kbd "M-S") 'helm-projectile-ack)
+(global-set-key (kbd "M-S") 'helm-projectile-ag)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "M-z") 'helm-resume)
