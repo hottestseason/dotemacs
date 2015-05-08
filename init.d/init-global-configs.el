@@ -48,6 +48,7 @@
                 (split-window-horizontally))
               (other-window 1))
             (global-set-key (kbd "<C-tab>") 'other-window-or-split)
+            (global-set-key (kbd "C-t") 'other-window-or-split)
             (global-set-key (kbd "C-x o") 'other-window-or-split)
 
             (setq hippie-expand-try-functions-list
