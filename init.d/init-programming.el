@@ -31,11 +31,6 @@
                               (t
                                (electric-indent-mode 1)))))
 
-            (add-hook 'find-file-hook
-                      (lambda ()
-                        (when (require 'projectile nil t)
-                          (rename-buffer (projectile-prepend-project-name (file-relative-name (buffer-file-name) (projectile-project-root)))))))
-
             (setq-default indent-tabs-mode nil)
             (add-hook 'makefile-mode-hook
                       (lambda ()
