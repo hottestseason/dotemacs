@@ -1,5 +1,7 @@
 (require 'color)
 
+(setq ns-use-srgb-colorspace nil)
+
 (custom-set-variables
  '(default-frame-alist (append '((alpha . 90)) default-frame-alist)))
 
