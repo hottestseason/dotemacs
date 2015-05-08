@@ -29,6 +29,7 @@
     git-gutter
     git-gutter-fringe
     haml-mode
+    haskell-mode
     helm
     helm-ag
     helm-projectile

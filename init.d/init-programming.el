@@ -21,6 +21,7 @@
                       (lambda ()
                         (cond ((memq major-mode '(coffee-mode
                                                    haml-mode
+                                                   haskell-mode
                                                    markdown-mode
                                                    slim-mode
                                                    latex-mode
@@ -50,7 +51,9 @@
                 (newline-and-indent)))
             (global-set-key (kbd "RET") 'newline-and-insert-newline-and-indent-after-brace)
 
-            (global-set-key (kbd "s-g") 'magit-status)))
+            (global-set-key (kbd "s-g") 'magit-status)
+
+            (add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)))
 
 (add-hook 'prog-mode-hook
           (lambda ()
