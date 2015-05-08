@@ -30,6 +30,12 @@
   (add-hook 'flycheck-after-syntax-check-hook 'update-powerline-major-mode-face)
   (add-hook 'flycheck-syntax-check-failed-hook 'update-powerline-major-mode-face)
 
+  (defun wc-line ()
+    (let ((chars (if (use-region-p) (abs (- (point) (mark))) (point-max)))
+          (words (if (use-region-p) (count-words-region (point) (mark)) (count-words-region (point-min) (point-max))))
+          (lines (if (use-region-p) (abs (- (line-number-at-pos (point)) (line-number-at-pos (mark)))) (line-number-at-pos (point-max)))))
+      (format "%d L | %d W | %d C " lines words chars)))
+
   (setq-default mode-line-format
                 '("%e"
                   (:eval
@@ -62,6 +68,7 @@
                                   (powerline-raw which-func-format nil 'l))))
                           (rhs (list
                                 (powerline-raw global-mode-string mode-line 'r)
+                                (powerline-raw (wc-line) mode-line 'r)
                                 (funcall separator-right mode-line face3)
                                 (powerline-raw "%4l:%3c" face3 'r)
                                 (funcall separator-right face3 face2)
