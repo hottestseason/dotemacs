@@ -20,6 +20,8 @@
 
             (global-auto-revert-mode t)
 
+            (setq-default fill-column 100)
+
             (setq undo-limit 1000000)
             (setq undo-strong-limit 1000000)
 
@@ -115,7 +117,8 @@
             (when (require 'textmate nil t)
               (textmate-mode 1)
               (define-key *textmate-mode-map* (kbd "M-<up>") nil)
-              (define-key *textmate-mode-map* (kbd "M-<down>") nil))
+              (define-key *textmate-mode-map* (kbd "M-<down>") nil)
+	      (define-key *textmate-mode-map* (kbd "M-t") nil))
 
             (when (require 'move-text nil t)
                (move-text-default-bindings))
@@ -138,6 +141,14 @@
                           (let ((dir (file-name-directory buffer-file-name)))
                             (when (not (file-exists-p dir))
                               (make-directory dir t))))))
+
+            (setq buffer-file-coding-system 'utf-8-unix)
+            (setq default-file-name-coding-system 'utf-8-unix)
+            (setq default-keyboard-coding-system 'utf-8-unix)
+            (setq default-process-coding-system '(utf-8-unix . utf-8-unix))
+            (setq default-sendmail-coding-system 'utf-8-unix)
+            (setq default-terminal-coding-system 'utf-8-unix)
+            (set-locale-environment "en_US.UTF-8")
 
             (global-set-key (kbd "s-=") 'text-scale-increase)
             (global-set-key (kbd "s--") 'text-scale-decrease)

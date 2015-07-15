@@ -28,6 +28,8 @@
     flycheck-tip
     git-gutter
     git-gutter-fringe
+    go-mode
+    go-autocomplete
     haml-mode
     haskell-mode
     helm

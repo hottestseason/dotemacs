@@ -64,9 +64,9 @@
 
             (require 'init-modeline)))
 
-(eval-after-load 'vc-git
-  '(progn
-     (when (require 'git-gutter-fringe nil t)
-       (global-git-gutter-mode t))))
+;; (eval-after-load 'vc-git
+;;   '(progn
+;;      (when (require 'git-gutter-fringe nil t)
+;;        (global-git-gutter-mode t))))
 
 (provide 'init-face)
