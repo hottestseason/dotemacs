@@ -2,7 +2,7 @@
   (global-flycheck-mode 1)
   (custom-set-variables
    '(flycheck-idle-change-delay 0.5)
-   '(flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
+   '(flycheck-disabled-checkers '(emacs-lisp-checkdoc html-tidy)))
   (when (require 'flycheck-tip nil t)
     (custom-set-variables
      '(flycheck-tip-avoid-show-func nil)
