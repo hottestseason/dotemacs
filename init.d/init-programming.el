@@ -57,7 +57,7 @@
 
 (add-hook 'prog-mode-hook
           (lambda ()
-            (which-func-mode t)
+            (which-function-mode t)
             (add-to-list 'auto-mode-alist '("\\.t$" . perl-mode))
 
             ;; (require 'init-tabbar)
@@ -70,6 +70,7 @@
             (require 'init-tex)
             (require 'init-css)
             (require 'init-haml)
+            (require 'init-perl)
             (require 'init-programming-contest)))
 
 (provide 'init-programming)
