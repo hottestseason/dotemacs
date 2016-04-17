@@ -7,6 +7,7 @@
 (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.cap$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Guardfile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.schema$" . ruby-mode))
 (add-hook 'ruby-mode-hook
           (lambda ()
             (setq
