@@ -52,7 +52,6 @@
     recentf-ext
     region-bindings-mode
     ruby-block
-    ruby-end
     sass-mode
     scss-mode
     sequential-command

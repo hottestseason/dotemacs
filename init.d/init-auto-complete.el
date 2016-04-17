@@ -10,6 +10,7 @@
   (add-to-list 'ac-modes 'rhtml-mode)
   (add-to-list 'ac-modes 'haml-mode)
   (add-to-list 'ac-modes 'slim-mode)
+  (add-to-list 'ac-modes 'js2-jsx-mode)
   (setq-default ac-sources
                 '(ac-source-abbrev
                   ac-source-dictionary
