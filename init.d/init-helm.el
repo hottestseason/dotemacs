@@ -9,7 +9,7 @@
    helm-quick-update t
    helm-m-occur-idle-delay 0
    helm-ff-transformer-show-only-basename nil
-   helm-mini-default-sources '(helm-source-buffers-list helm-source-recentf helm-source-find-files helm-c-source-buffer-not-found)
+   helm-mini-default-sources '(helm-source-buffers-list helm-source-recentf helm-source-find-files)
    helm-split-window-in-side-p t
    helm-split-window-preferred-function (lambda (window)
                                           (cond ((require 'popwin nil t)
