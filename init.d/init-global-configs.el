@@ -156,6 +156,5 @@
             (global-set-key (kbd "s-0") '(lambda () (interactive) (text-scale-set 0)))))
 
 (require 'init-helm)
-(require 'init-multiple-cursors)
 
 (provide 'init-global-configs)

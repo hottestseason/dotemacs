@@ -42,7 +42,6 @@
     markdown-mode
     minor-mode-hack
     move-text
-    multiple-cursors
     point-undo
     popwin
     powerline
