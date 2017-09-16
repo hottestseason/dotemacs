@@ -13,5 +13,10 @@
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
 (setq typescript-indent-level 2)
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (tide-hl-identifier-mode +1))
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
 
 (provide 'init-js)
