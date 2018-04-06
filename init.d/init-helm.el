@@ -20,6 +20,7 @@
   (require 'projectile nil t)
   (after-load 'projectile
     (projectile-global-mode)
+    (setq projectile-git-command "ag -l --null")
     (setq projectile-require-project-root nil)
 
     (require 'helm-projectile)
