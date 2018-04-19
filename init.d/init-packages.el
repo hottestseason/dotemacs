@@ -42,7 +42,6 @@
     markdown-mode
     minor-mode-hack
     move-text
-    point-undo
     popwin
     powerline
     projectile
