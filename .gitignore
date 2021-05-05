@@ -6,8 +6,12 @@
 /elpa
 /history
 /projectile-bookmarks.eld
+/projectile.cache
 /tramp
 /undohist
 /ido.last
 /places
 /recentf
+/company-statistics-cache.el
+/el-get/
+/var/
