@@ -19,6 +19,26 @@
     :config
     (leaf-keywords-init)))
 
+(leaf copilot
+  :el-get (copilot
+           :type github
+           :pkgname "zerolfx/copilot.el")
+  :config
+  (leaf editorconfig
+    :ensure t)
+  (leaf s
+    :ensure t)
+  (leaf dash
+    :ensure t)
+  (defun my/copilot-tab ()
+    (interactive)
+    (or (copilot-accept-completion)
+        (indent-for-tab-command)))
+  (add-hook 'prog-mode-hook 'copilot-mode)
+  :bind ((copilot-completion-map
+          ("<tab>" . copilot-accept-completion)
+          ("TAB" . copilot-accept-completion))))
+
 (leaf cus-edit
   :custom `((custom-file . ,(locate-user-emacs-file "custom.el"))))
 
@@ -522,6 +542,10 @@
 
 (leaf undo-tree
   :ensure t
+  :custom
+  (undo-tree-history-directory-alist . '(("." . "~/.emacs.d/undo")))
+  (undo-tree-visualizer-diff . t)
+  (undo-tree-visualizer-timestamps . t)
   :bind (("s-Z" . undo-tree-redo))
   :global-minor-mode global-undo-tree-mode)
 
