@@ -266,7 +266,9 @@
   (doom-modeline-minor-modes . nil))
 
 (leaf editorconfig
-  :ensure t)
+  :ensure t
+  :config
+  (editorconfig-mode 1))
 
 (leaf exec-path-from-shell
   :ensure t
