@@ -108,14 +108,14 @@
                                                  try-expand-list try-expand-line
                                                  try-complete-lisp-symbol-partially
                                                  try-complete-lisp-symbol))
-           (inhibit-startup-message . t)
            (indent-tabs-mode . nil)
+           (inhibit-startup-message . t)
            (kill-read-only-ok . t)
-           (ring-bell-function . 'ignore)
+           (recentf-auto-cleanup . 'never)
+           (recentf-exclude . '("\.ido\.hist" "\.ido\.last" "xhtml-loader\.rnc" "elpa\/"))
            (recentf-max-saved-items . 10000000)
            (recentf-max-menu-items . 10000)
-           (recentf-exclude . '("\.ido\.hist" "\.ido\.last" "xhtml-loader\.rnc" "elpa\/"))
-           (recentf-auto-cleanup . 'never)
+           (ring-bell-function . 'ignore)
            (scroll-bar-mode . nil)
            (scroll-preserve-screen-position . t)
            (tab-width . 2)
