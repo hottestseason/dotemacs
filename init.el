@@ -171,10 +171,7 @@
                      (electric-indent-mode 1)))))
   (add-hook 'makefile-mode-hook
             (lambda ()
-              (setq indent-tabs-mode t)))
-  (cond ((featurep 'gtk)
-         (setq x-alt-keysym 'meta)
-         (setq x-meta-keysym 'super))))
+              (setq indent-tabs-mode t))))
 
 (leaf all-the-icons
   :ensure t)
